@@ -1,0 +1,27 @@
+<!doctype html>
+<html ng-app="angularScopesBug">
+  <head>
+    <meta charset="utf-8">
+    <title>angularScopesBug</title>
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="http://devskiller.com/favicon.ico" />
+    <meta name="viewport" content="width=device-width">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+
+    <div ng-controller="WelcomeController">
+      <h1>Hello, {{ getName() }}</h1>
+      <div ng-controller="EditingController">
+        <button ng-click="changeName()" ng-show="!editMode">Change your name</button>
+
+        <div ng-show="editMode">
+          <name-editor ng-show="editMode"></name-editor>
+          <button ng-click="closeEditor()" ng-show="editMode">Close name editor</button>
+        </div>
+      </div>
+    </div>
+  
+  </body>
+</html>
