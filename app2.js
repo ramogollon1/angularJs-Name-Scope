@@ -10,6 +10,11 @@ angular
         };
     })
     .controller("EditingController", function($scope) {
+
+        $scope.$watch('name', function() {
+            $scope.$parent.name = $scope.name
+        });
+
         $scope.editMode = false;
         $scope.changeName = function() {
             $scope.editMode = true;
@@ -21,15 +26,12 @@ angular
     .directive("nameEditor", function ($compile) {
 
         return {
-            restrict: 'E',
-            transclude: true,
-            link: function($scope) {
-                $scope.$watch('name', function() {
-
-                    $scope.$parent.name = $scope.name
-                });
-            },
-            replace: true,
+            // restrict: 'E',
+            // transclude: true,
+            // link: function($scope) {
+            //
+            // },
+            // replace: true,
             template: '<div>Write your name: <input type="text" ng-model="name"></div>'
         };
     });
